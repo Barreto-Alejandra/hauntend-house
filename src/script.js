@@ -23,6 +23,27 @@ const textureLoader = new THREE.TextureLoader()
 /**
  * House
  */
+// House container
+const house = new THREE.Group()
+scene.add(house)
+
+//walls
+const walls = new THREE.Mesh(
+    new THREE.BoxGeometry(4, 2.5, 4),
+    new THREE.MeshStandardMaterial({ color: '#ac8e82' })
+)
+walls.position.y = 1.25
+house.add(walls)
+
+// Roof
+const roof = new THREE.Mesh(
+    new THREE.ConeGeometry(3.5, 1, 4),
+    new THREE.MeshStandardMaterial({ color: '#b35f45' })
+)
+roof.rotation.y = Math.PI * 0.25
+roof.position.y = 2.5 + 0.5
+house.add(roof)
+
 // Temporary sphere
 const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(1, 32, 32),
